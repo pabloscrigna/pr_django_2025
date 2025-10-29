@@ -5,5 +5,5 @@ from django.db import models
 class Alumno(models.Model):
     nombre = models.CharField(max_length=20)
     edad = models.IntegerField()
-    activo = models.BooleanField(default=True)
+    activo = models.BooleanField(default=False)
 
