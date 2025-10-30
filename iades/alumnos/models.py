@@ -7,3 +7,7 @@ class Alumno(models.Model):
     edad = models.IntegerField()
     activo = models.BooleanField(default=False)
 
+    def __str__(self):
+        return self.nombre
+
+
