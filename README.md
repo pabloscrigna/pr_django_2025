@@ -54,3 +54,26 @@ $ python manage.py showmigrations
 # Crear el superuser
 
 $ python manage.py createsuperuser
+
+## Flujo de una peticion a una pagina
+
+1. Levantar el servidor de desarrollo
+
+python manage.py runserver
+
+2. Acceder a la url
+
+Navegador: http://localhost:8000/admin
+Navegador: http://127.0.0.1:8000/alumnos/noche
+
+localhost == 127.0.0.1
+
+#. analisis de la URL
+
+http://127.0.0.1:8000 --> Direccion del servidor
+
+/alumnos/noche ---> ROOT_URLCONF
+
+Encuentra la ruta a /alumnos en iades.urls path("alumnos/", include("alumnos.urls")),
+
+Y sigue buscando en alumnos.urls ---> analiza el resto de la url y consume la vista correspondiente.
