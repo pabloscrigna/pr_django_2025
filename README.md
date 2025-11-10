@@ -77,3 +77,25 @@ http://127.0.0.1:8000 --> Direccion del servidor
 Encuentra la ruta a /alumnos en iades.urls path("alumnos/", include("alumnos.urls")),
 
 Y sigue buscando en alumnos.urls ---> analiza el resto de la url y consume la vista correspondiente.
+
+# ORM
+
+$ python manage.py shell
+
+# Para el modelo Curso
+
+# Buscar todos los registros de un modelo
+
+Curso.objects.all() ---> Queryset
+
+# Buscar registros por valor de un campo
+
+Curso.objects.filter(nombre="valor") ---> Queryset
+
+# Buscar registros por valor de un campo - solo el primero
+
+Curso.objects.filter(nombre="valor").first() ---> hace la consulta, tiene el valor
+
+# Buscar por id
+
+Curso.objects.get(id=3) --> hace la consulta tiene el valor

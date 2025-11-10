@@ -11,3 +11,8 @@ class Alumno(models.Model):
         return self.nombre
 
 
+class Profesor(Alumno):
+    turno = models.CharField(max_length=45)
+
+    class Meta:
+        verbose_name_plural = "Profesores"
