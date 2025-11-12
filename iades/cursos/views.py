@@ -20,3 +20,8 @@ def curso_lista(request, id):
     curso = Curso.objects.get(id=id)
 
     return render(request, "lista_curso.html", {"curso": curso})
+
+
+def cursos_vista(request):
+    print("Cursos vista")
+    return render(request, "index.html")
