@@ -1,14 +1,42 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listar Cursos</title>
-</head>
-<body>
-    <h2>Cursos disponibles</h2>
-    {% for curso in cursos %}
-    <li>{{ curso.nombre}} *** {{ curso.inscriptos }}  </li>
-    {% endfor %}
-</body>
-</html>
+{% extends "index.html" %}
+
+    {% load static %}
+
+{% block segun_la_vista %}
+
+<div class="container">
+  <h1 class="mb-4 text-center">Listado de Cursos</h1>
+
+  {% if cursos %}
+    <table class="table table-striped table-bordered align-middle shadow-sm">
+      <thead class="table-primary">
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Inscriptos</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for curso in cursos %}
+          <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ curso.nombre }}</td>
+            <td>{{ curso.inscriptos }}</td>
+            <td>
+              <a href="{% url 'BuscarCurso' curso.id %}" class="btn btn-sm btn-outline-primary">
+                Ver detalles
+              </a>
+            </td>
+          </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  {% else %}
+    <div class="alert alert-info text-center">
+      No hay cursos registrados.
+    </div>
+  {% endif %}
+</div>
+
+{% endblock %}

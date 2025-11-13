@@ -1,10 +1,12 @@
 from django.urls import path
 
-from .views import cursos_agregar, cursos_listar, curso_lista, cursos_vista
+from .views import listar_cursos, busca_curso, vista_inicio, crear_curso, crear_instructor
 
 urlpatterns = [
-    path("listar/", cursos_listar),
-    path("listar/<int:id>/", curso_lista),
-    path("agregar/", cursos_agregar),
-    path("", cursos_vista, name="Cursos")
+    path("listar/", listar_cursos, name="ListarCursos"),
+    path("listar/<int:id>/", busca_curso, name="BuscarCurso"),
+    # path("agregar/", agregar_curso, name="AgregarCurso"),
+    path("inicio/", vista_inicio, name="Inicio"),
+    path("curso-formulario", crear_curso, name="CrearCurso"),
+    path("crear-instructor", crear_instructor, name="CrearInstructor")
 ]
